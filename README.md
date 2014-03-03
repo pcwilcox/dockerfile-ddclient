@@ -12,8 +12,9 @@ Dockerfile and configuration for ddclient using opendns and dnsomatic.
       Opendns.com
 
 ## Build
-* enter your credentials and information into `ddclient.conf`, `ddclient` can
-  remain as is since we won't be using the built-in daemon.
+* enter your login credentials into `ddclient.conf`. `ddclient` can
+  remain as is since we won't be using the built-in daemon, but I included it
+  just for completeness.
 * Remember to select your closest mirror in the `Dockerfile` before building.
 * `sudo docker build -t sys/ddclient .`
 * `sudo docker run --name="ddclient" sys/ddclient`
