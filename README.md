@@ -17,3 +17,6 @@ Dockerfile and configuration for ddclient using opendns and dnsomatic.
 * Remember to select your closest mirror in the `Dockerfile` before building.
 * `sudo docker build -t sys/ddclient .`
 * `sudo docker run --name="ddclient" sys/ddclient`
+
+## License
+MIT
