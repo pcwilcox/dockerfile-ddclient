@@ -22,7 +22,7 @@ RUN         DEBIAN_FRONTEND=noninteractive apt-get -qy install ssh libio-socket-
 # Add configuration files
 ADD         ddclient /etc/default/ddclient
 ADD         ddclient.conf /etc/ddclient.conf
-ADD         run.sh /opt/run.sh
-RUN         chmod +x /opt/run.sh
+ADD         entrypoint.sh /opt/entrypoint.sh
+RUN         chmod +x /opt/entrypoint.sh
 
-CMD         ["/opt/run.sh"]
+ENTRYPOINT  ["/opt/entrypoint.sh"]
