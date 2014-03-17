@@ -1,8 +1,9 @@
 # Dockerfile for DDClient
 #
-# Version   1.0
+# Version   1.1
 FROM        stackbrew/ubuntu:saucy
 MAINTAINER  Brian Clements <brian@brianclements.net>
+
 
 # Select your closest mirror from...
 # East Coast US:                        us-east-1.ec2.archive
@@ -12,12 +13,14 @@ MAINTAINER  Brian Clements <brian@brianclements.net>
 # Western Europe (Dublin, Ireland):     eu-west-1.ec2.archive
 # SouthEast Asia (Singapore):           ap-southeast-1.ec2.archive
 # NorthEast Asia (Tokyo):               ap-northeast-1.ec2.archive
-# ... and replace MIRROR below with your selection
-RUN         sed 's@archive@MIRROR@' -i /etc/apt/sources.list
+# ... and assign MIRROR below with your selection
+ENV MIRROR  us-west-1.ec2.archive
+RUN         sed "s@archive@$MIRROR@" -i /etc/apt/sources.list
 
 # Install packages
 RUN         apt-get -q update
-RUN         DEBIAN_FRONTEND=noninteractive apt-get -qy install ssh libio-socket-ssl-perl ddclient
+ENV DEBIAN_FRONTEND noninteractive
+RUN         apt-get -qy install ssh libio-socket-ssl-perl ddclient
 
 # Add configuration files
 ADD         ddclient /etc/default/ddclient
