@@ -1,8 +1,9 @@
 # Dockerfile for DDClient
 #
 # Version   1.1
-FROM        stackbrew/ubuntu:saucy
-MAINTAINER  Brian Clements <brian@brianclements.net>
+FROM        ubuntu:bionic
+# MAINTAINER  Brian Clements <brian@brianclements.net>
+MAINTAINER  Pete Wilcox <petercwilcox@gmail.com>
 
 
 # Select your closest mirror from...
@@ -14,8 +15,8 @@ MAINTAINER  Brian Clements <brian@brianclements.net>
 # SouthEast Asia (Singapore):           ap-southeast-1.ec2.archive
 # NorthEast Asia (Tokyo):               ap-northeast-1.ec2.archive
 # ... and assign MIRROR below with your selection
-ENV MIRROR  us-west-1.ec2.archive
-RUN         sed "s@archive@$MIRROR@" -i /etc/apt/sources.list
+# ENV MIRROR  us-west-1.ec2.archive
+# RUN         sed "s@archive@$MIRROR@" -i /etc/apt/sources.list
 
 # Install packages
 RUN         apt-get -q update
